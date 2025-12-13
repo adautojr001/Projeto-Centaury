@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jdk-jammy AS build
 
 WORKDIR /app
 
-# Copia arquivos Maven e código fonte
+# Copia Maven wrapper e arquivos do projeto
 COPY mvnw pom.xml ./
 COPY .mvn .mvn
 COPY src ./src
@@ -11,16 +11,23 @@ COPY src ./src
 # Torna o Maven wrapper executável
 RUN chmod +x mvnw
 
-# Compila o projeto e gera um jar executável com Spring Boot
+# Build do Spring Boot, pulando testes para acelerar
 RUN ./mvnw clean package -DskipTests
 
-# Stage 2: runtime (menor)
+# Stage 2: runtime (imagem menor)
 FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
-# Copia apenas o jar executável
+# Copia o jar gerado
 COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
+
+# Expõe porta 8080 (conforme fly.toml)
+EXPOSE 8080
+
+# Inicializa o Spring Boot
+ENTRYPOINT ["java","-jar","app.jar"]
+
 
 # Expõe porta conforme fly.toml
 EXPOSE 8080
