@@ -1,14 +1,30 @@
-# Use Java 17
-FROM openjdk:17-jdk-slim
+# Use a lightweight OpenJDK 17 image
+FROM eclipse-temurin:17-jdk-jammy AS build
+
+# Set working directory
+WORKDIR /app
+
+# Copy Maven/Gradle wrapper and build files
+COPY mvnw pom.xml ./
+COPY .mvn .mvn
+COPY src ./src
+
+# Make Maven wrapper executable (if using Maven)
+RUN chmod +x mvnw
+
+# Build the Spring Boot app (skip tests for faster build)
+RUN ./mvnw clean package -DskipTests
+
+# Use a smaller runtime image for the final container
+FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
-# Copia o jar do Spring Boot
-COPY target/app.jar ./app.jar
+# Copy the jar from the build stage
+COPY --from=build /app/target/*.jar app.jar
 
-# Copia o script wait-for-it
-COPY wait-for-it.sh ./
-RUN chmod +x wait-for-it.sh
+# Expose port
+EXPOSE 8080
 
-# Comando padrão
-CMD ["java", "-jar", "app.jar"]
+# Run the jar
+ENTRYPOINT ["java","-jar","app.jar"]
