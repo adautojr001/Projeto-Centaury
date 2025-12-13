@@ -3,27 +3,25 @@ FROM eclipse-temurin:17-jdk-jammy AS build
 
 WORKDIR /app
 
-# Copia Maven wrapper e arquivos do projeto
-COPY mvnw pom.xml ./
-COPY .mvn .mvn
+# Copia arquivos do projeto
+COPY pom.xml ./
 COPY src ./src
 
-# Torna o Maven wrapper executável
-RUN chmod +x mvnw
+# Build do Spring Boot (requere Maven dentro do container)
+RUN apt-get update && apt-get install -y maven \
+    && mvn clean package -DskipTests
 
-# Build do Spring Boot, pulando testes
-RUN ./mvnw clean package -DskipTests
-
-# Stage 2: runtime (menor)
+# Stage 2: runtime
 FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
 # Copia o jar gerado
-COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 
 # Expõe porta 8080
 EXPOSE 8080
 
 # Inicializa o Spring Boot
 ENTRYPOINT ["java","-jar","app.jar"]
+
