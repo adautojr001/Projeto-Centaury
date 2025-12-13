@@ -11,7 +11,7 @@ COPY src ./src
 # Make Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build Spring Boot app (skip tests for faster build)
+# Build Spring Boot app, skipping tests to speed up
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: runtime (smaller image)
@@ -25,8 +25,9 @@ COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
 # Expose port 8080 (matches fly.toml)
 EXPOSE 8080
 
-# Run Spring Boot app
+# Run the Spring Boot app
 ENTRYPOINT ["java","-jar","app.jar"]
+
 
 
 # Expõe porta 8080 (conforme fly.toml)
