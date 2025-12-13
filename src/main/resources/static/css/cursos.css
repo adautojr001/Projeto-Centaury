@@ -1,0 +1,110 @@
+/* Fundo estelar */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #0e0333, #000015 70%) fixed;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/img.jpg') no-repeat center center / cover;
+    opacity: 0.3;
+    pointer-events: none;
+}
+/* ------------------------------
+   TOPBAR
+--------------------------------*/
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: rgba(33, 126, 232, 0.1);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+.logo_img {
+    height: 50px;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #8ab4ff;
+}
+header {
+    background-color: #3e0cf2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#cursos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    color: #000;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    min-height: 50px;
+}
+
+.alunos {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+button.matricular-btn {
+    background-color: #3e0cf2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.matricular-btn:hover {
+    background-color: #2fd3f0;
+}
+
+
+
+
+

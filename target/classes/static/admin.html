@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Cursos</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <h1>Cadastro de Cursos</h1>
+
+    <form id="form-curso">
+        <input id="nome" type="text" placeholder="Nome do curso" required>
+        <input id="descricao" type="text" placeholder="Descrição" required>
+        <button type="submit">Adicionar Curso</button>
+    </form>
+
+    <div id="cursos-container" class="cursos-container"></div>
+
+    <!-- Modal de Edição 
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Curso</h2>
+            <input id="editar-nome" type="text" placeholder="Nome do curso">
+            <input id="editar-descricao" type="text" placeholder="Descrição">
+            <button id="salvar-edicao">Salvar</button>
+        </div>
+    </div>
+    -->
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
+

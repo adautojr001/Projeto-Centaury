@@ -1,0 +1,244 @@
+/* ------------------------------
+   RESET BÁSICO
+--------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #0e0333;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/img.jpg') no-repeat center center / cover;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ------------------------------
+   TOPBAR
+--------------------------------*/
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: rgba(33, 126, 232, 0.1);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+.logo_img {
+    height: 50px;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #8ab4ff;
+}
+html {
+    scroll-behavior: smooth;
+}
+.btn-primary {
+    padding: 10px 20px;
+    border: none;
+    background: #5b30ff;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #6c4dff;
+}
+
+/* ------------------------------
+   HERO
+--------------------------------*/
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero h2 span {
+    color: #8ab4ff;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #5b30ff;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.hero-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* ------------------------------
+   ÁREAS DE CONHECIMENTO
+--------------------------------*/
+.areas {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.areas h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    background: #1b113d;
+    padding: 20px;
+    border-radius: 12px;
+    width: 240px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4 {
+    font-size: 20px;
+    color: #8ab4ff;
+}
+
+/* ------------------------------
+   PLANOS
+--------------------------------*/
+.planos {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.planos h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.planos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.plano {
+    width: 260px;
+    background: #1b113d;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.plano .valor {
+    font-size: 26px;
+    margin: 10px 0;
+    color: #8ab4ff;
+}
+
+.plano ul {
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.plano ul li {
+    margin: 6px 0;
+}
+
+.destaque {
+    background: linear-gradient(145deg, #5b30ff, #2600ff);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* ------------------------------
+   RESPONSIVIDADE
+--------------------------------*/
+@media (max-width: 900px) {
+    .topbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .planos-container,
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+

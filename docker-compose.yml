@@ -1,0 +1,34 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: edtechdb
+      MYSQL_USER: centauri
+      MYSQL_PASSWORD: centauri
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  centauri:
+    build: .
+    container_name: centauri
+    depends_on:
+      - mysql
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/edtechdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: centauri
+      SPRING_DATASOURCE_PASSWORD: centauri
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    entrypoint: ["./wait-for-it.sh", "mysql:3306", "--timeout=60", "--", "java", "-jar", "app.jar"]
+    restart: always
+
+volumes:
+  mysql_data:
+
+

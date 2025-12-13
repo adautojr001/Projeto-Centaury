@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Cursos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat-widget.css" />
+    
+
+
+</head>
+<body>
+
+    <header class="topbar">
+        <img src="img/logo.png" alt="Logo do Sistema" class="logo_img">
+    <h1 class="logo">Clube Centaury</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="#planos">Planos</a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <button class="btn-primary" onclick="location.href='cadastro.html'">
+        Criar Conta
+    </button>
+</header>
+
+    <section class="hero">
+        <span class="badge">Comece Agora</span>
+        
+        <h2>Transforme sua paixão por <span>Astronomia</span> em conhecimento</h2>
+        <p>Explore o universo com cursos interativos, trilhas de conhecimento e conteúdos exclusivos.</p>
+
+        <div class="hero-btns">
+            <button class="btn-primary onclick="location.href='cadastro.html'"">Começar Jornada</button>
+            <button class="btn-secondary  onclick="location.href='cursos.html'"">Ver Cursos</button>
+        </div>
+    </section>
+
+    <section class="areas">
+        <h3>Áreas de Conhecimento</h3>
+        <div class="card-container">
+            <div class="card">
+                <h4>Astronomia & Astrofísica</h4>
+                <p>Entenda o cosmos, estrelas, galáxias e fenômenos.</p>
+            </div>
+            <div class="card">
+                <h4>Foguetes e Engenharia Espacial</h4>
+                <p>Aprenda sobre propulsão, órbitas e tecnologia espacial.</p>
+            </div>
+            <div class="card">
+                <h4>Exploração Científica</h4>
+                <p>Missões, telescópios e novas descobertas.</p>
+            </div>
+            <div class="card">
+                <h4>Astrobiologia</h4>
+                <p>A busca por vida e ambientes extraterrestres.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id ="planos">
+        <h3>Escolha seu plano</h3>
+
+        <div class="planos-container">
+            <div class="plano">
+                <h4>Explore</h4>
+                <p class="valor">R$ 0/mês</p>
+                <ul>
+                    <li>Acesso limitado</li>
+                    <li>Comunidade aberta</li>
+                </ul>
+                <button class="btn-secondary" onclick="location.href='cursos.html'">Começar</button>
+            </div>
+
+            <div class="plano destaque">
+                <h4>Astronauta</h4>
+                <p class="valor">R$ 49/mês</p>
+                <ul>
+                    <li>Todos os cursos</li>
+                    <li>Certificados</li>
+                    <li>Desafios e trilhas</li>
+                </ul>
+                <button class="btn-primary">Assinar</button>
+            </div>
+
+            <div class="plano">
+                <h4>Comandante</h4>
+                <p class="valor">R$ 149/mês</p>
+                <ul>
+                    <li>Cursos avançados</li>
+                    <li>Aulas ao vivo</li>
+                    <li>Mentorias</li>
+                </ul>
+                <button class="btn-tertiary">Ver mais</button>
+            </div>
+        </div>
+    </section>
+    <div id="chatbot-button">💬</div>
+
+<div id="chatbot-window">
+    <header>Chatbot - Centaury</header>
+    <div id="chat-area"></div>
+    <input id="chat-input" type="text" placeholder="Digite sua pergunta...">
+</div>
+
+<script src="js/chat-widget.js"></script>
+
+    <script src="js/index.js"></script>
+    <script src="/chat-widget.js" defer></script>
+</body>
+</html>
+
+

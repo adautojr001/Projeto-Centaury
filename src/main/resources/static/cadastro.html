@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    
+
+    <div class="container">
+        <h2>Cadastro</h2>
+        <form id="cadastroForm">
+            <label for="username">Nome:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
+
+            <label for="role">Perfil:</label>
+            <select id="role">
+                <option value="ALUNO">Aluno</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+
+            <label for="curso">Curso:</label>
+            <select id="curso">
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="Front-End">Front-End</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div class="buttons">
+            <button id="btnVoltar">Voltar</button>
+            <button id="btnCursos">Cursos</button>
+        </div>
+
+        <p id="mensagem"></p>
+    </div>
+
+    <script src="js/cadastro.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:moodledb;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+moodle:
+  url: https://seu-moodle.example/webservice/rest/server.php
+  token: SUA_TOKEN_MOODLE
+
+security:
+  jwt:
+    secret: MUITO_SECRETO_MUDE_ISTO_256_BITS_MINIMO
+    expiration-ms: 86400000
+
+cors:
+  allowed-origins:
+    - https://www.clube-centaury.wixsite.com
+    - https://clube-centaury.wixsite.com

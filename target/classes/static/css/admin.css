@@ -1,0 +1,154 @@
+/* ======== FUNDO ======== */
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: url('../img/img.jpg') no-repeat center center / cover fixed;
+    color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+/* ======== TÍTULO ======== */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* ======== FORM ======== */
+form {
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    max-width: 600px;
+    margin: 25px auto;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+form input {
+    flex: 1 1 250px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #4b7bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: #335df0;
+}
+
+/* ======== CONTAINER DOS CURSOS ======== */
+.cursos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ======== CARD ======== */
+.card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    width: 280px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #ddd;
+    min-height: 50px;
+}
+
+button.editar-btn,
+button.deletar-btn {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button.editar-btn {
+    background-color: #2d7AFF;
+    color: #fff;
+}
+
+button.deletar-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+/* ======== MODAL ======== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: rgba(255,255,255,0.9);
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 350px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
